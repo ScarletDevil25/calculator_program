@@ -104,7 +104,7 @@ public class Project extends JFrame {
 		cal = new JButton("Calculate");
 		cal.setBounds(130,70,90,25);
 		add(cal);
-		res = new JButton("Reset");
+		res = new JButton("Restart");
 		res.setBounds(130,70,90,25);
 		add(res);
 	
@@ -149,6 +149,7 @@ public class Project extends JFrame {
 						answer2.setVisible(false);
 						answer3.setVisible(false);
 						answer4.setVisible(false);
+						res.setVisible(false);
 						cal.setBounds(130,100,90,25);
 					}
 					else if ((add.getState()==true)&&(sub.getState()==true)&& (div.getState()==false)&& (multi.getState()==false)){
@@ -162,6 +163,8 @@ public class Project extends JFrame {
 						answer2.setVisible(true);
 						answer3.setVisible(false);
 						answer4.setVisible(false);
+						res.setVisible(false);
+						cal.setBounds(130,130,90,25);
 					}
 					else if (sub.getState()==true){
 						answer2.setText("Difference is: " + s );
@@ -173,6 +176,7 @@ public class Project extends JFrame {
 						answer2.setVisible(true);
 						answer3.setVisible(false);
 						answer4.setVisible(false);
+						res.setVisible(false);
 						cal.setBounds(130,130,90,25);
 					}
 					else if (multi.getState()==true){
@@ -185,6 +189,7 @@ public class Project extends JFrame {
 						answer2.setVisible(false);
 						answer3.setVisible(true);
 						answer4.setVisible(false);
+						res.setVisible(false);
 						cal.setBounds(130,160,90,25);
 					}
 					else if ((add.getState()==true) && (sub.getState()==true) && (div.getState()==true) && (multi.getState()==false)){
@@ -199,6 +204,8 @@ public class Project extends JFrame {
 						answer2.setVisible(true);
 						answer3.setVisible(true);
 						answer4.setVisible(false);
+						res.setVisible(false);
+						cal.setBounds(130,160,90,25);
 					}
 					else if (div.getState()==true){
 						answer4.setText("Quotient is: " + d);
@@ -210,6 +217,7 @@ public class Project extends JFrame {
 						answer2.setVisible(false);
 						answer3.setVisible(false);
 						answer4.setVisible(true);
+						res.setVisible(false);
 						cal.setBounds(130,190,90,25);
 					}
 					else if ((add.getState()==true) && (sub.getState()==true) && (div.getState()==true) && (multi.getState()==true)){
@@ -225,6 +233,8 @@ public class Project extends JFrame {
 						answer2.setVisible(true);
 						answer3.setVisible(true);
 						answer4.setVisible(true);
+						res.setVisible(false);
+						cal.setBounds(130,190,90,25);
 					}
 					else{
 						answer.setText("Please select an Operation");
