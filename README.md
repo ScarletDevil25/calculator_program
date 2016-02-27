@@ -177,7 +177,7 @@ public class Project extends JFrame {
 					else if ((add.getState()==true) && (sub.getState()==true) && (div.getState()==true) && (multi.getState()==false)){
 						answer.setText("Sum is: " + ad );
 						answer2.setText("Difference is: "+ s );
-						answer3.setText("Quotient is: " + d );
+						answer3.setText("Pruduct is: " + m );
 						ans.setVisible(true);
 						ans2.setVisible(true);
 						ans3.setVisible(true);
@@ -202,8 +202,8 @@ public class Project extends JFrame {
 					else if ((add.getState()==true) && (sub.getState()==true) && (div.getState()==true) && (multi.getState()==true)){
 						answer.setText("Sum is: " + ad );
 						answer2.setText("Difference is: "+ s );
-						answer3.setText("Quotient is: " + d );
-						answer4.setText("Product is: " + m);
+						answer3.setText("Product is: " + m );
+						answer4.setText("Quotient is: " + d);
 						ans.setVisible(true);
 						ans2.setVisible(true);
 						ans3.setVisible(true);
