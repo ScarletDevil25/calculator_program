@@ -10,8 +10,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
-
-
 import javax.swing.JTextField;
 
 public class Project extends JFrame { 
@@ -20,7 +18,7 @@ public class Project extends JFrame {
 	private static final long serialVersionUID = 3386380211796249949L;
 
 	private static JMenuBar  menubar;
-	private static JButton cal;
+	private static JButton cal,res;
 	public static JCheckBoxMenuItem add,sub,div,multi;
 
 	public Project() {
@@ -104,9 +102,23 @@ public class Project extends JFrame {
 		cal = new JButton("Calculate");
 		cal.setBounds(130,70,90,25);
 		add(cal);
-	
+		res = new JButton("Restart");
+		res.setBounds(130,70,90,25);
+		add(res);
+		
+
 //action to be performed by the button if the checkbox is selected
 		
+		
+			res.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				
+		        dispose();
+		        Project ex = new Project();
+		        ex.setVisible(true);
+		    
+			}});
 			cal.addActionListener(new ActionListener(){
 
 				@Override
@@ -122,99 +134,41 @@ public class Project extends JFrame {
 					
 					ad = in1 + in2;
 					s = in1 - in2;
-					d = in1 * in2;
-					m = in1 / in2;
-					
+					m = in1 * in2;
+					d = in1 / in2;
+				
 					
 					if(add.getState()==true){
-						answer.setText("Sum is: "+ ad );
-						ans.setVisible(true);
-						ans2.setVisible(false);
-						ans3.setVisible(false);
-						ans4.setVisible(false);
-						answer.setVisible(true);
-						answer2.setVisible(false);
-						answer3.setVisible(false);
-						answer4.setVisible(false);
-						cal.setBounds(130,100,90,25);
-					}
-					else if ((add.getState()==true)&&(sub.getState()==true)&& (div.getState()==false)&& (multi.getState()==false)){
 						answer.setText("Sum is: " + ad );
-						answer2.setText("Difference is: "+ s );
 						ans.setVisible(true);
-						ans2.setVisible(true);
-						ans3.setVisible(false);
-						ans4.setVisible(false);
 						answer.setVisible(true);
-						answer2.setVisible(true);
-						answer3.setVisible(false);
-						answer4.setVisible(false);
+						cal.setVisible(false);
+						res.setBounds(130,100,90,25);
 					}
-					else if (sub.getState()==true){
+					
+					 if (sub.getState()==true){
 						answer2.setText("Difference is: " + s );
-						ans.setVisible(false);
 						ans2.setVisible(true);
-						ans3.setVisible(false);
-						ans4.setVisible(false);
-						answer.setVisible(false);
 						answer2.setVisible(true);
-						answer3.setVisible(false);
-						answer4.setVisible(false);
-						cal.setBounds(130,130,90,25);
+						cal.setVisible(false);
+						res.setBounds(130,130,90,25);
 					}
-					else if (multi.getState()==true){
+					if (multi.getState()==true){
 						answer3.setText("Pruduct is: " + m );
-						ans.setVisible(false);
-						ans2.setVisible(false);
 						ans3.setVisible(true);
-						ans4.setVisible(false);
-						answer.setVisible(false);
-						answer2.setVisible(false);
 						answer3.setVisible(true);
-						answer4.setVisible(false);
-						cal.setBounds(130,160,90,25);
+						cal.setVisible(false);
+						res.setBounds(130,160,90,25);
 					}
-					else if ((add.getState()==true) && (sub.getState()==true) && (div.getState()==true) && (multi.getState()==false)){
-						answer.setText("Sum is: " + ad );
-						answer2.setText("Difference is: "+ s );
-						answer3.setText("Pruduct is: " + m );
-						ans.setVisible(true);
-						ans2.setVisible(true);
-						ans3.setVisible(true);
-						ans4.setVisible(false);
-						answer.setVisible(true);
-						answer2.setVisible(true);
-						answer3.setVisible(true);
-						answer4.setVisible(false);
-					}
-					else if (div.getState()==true){
+					if (div.getState()==true){
 						answer4.setText("Quotient is: " + d);
-						ans.setVisible(false);
-						ans2.setVisible(false);
-						ans3.setVisible(false);
 						ans4.setVisible(true);
-						answer.setVisible(false);
-						answer2.setVisible(false);
-						answer3.setVisible(false);
 						answer4.setVisible(true);
-						cal.setBounds(130,190,90,25);
+						cal.setVisible(false);
+						res.setBounds(130,190,90,25);
 					}
-					else if ((add.getState()==true) && (sub.getState()==true) && (div.getState()==true) && (multi.getState()==true)){
-						answer.setText("Sum is: " + ad );
-						answer2.setText("Difference is: "+ s );
-						answer3.setText("Product is: " + m );
-						answer4.setText("Quotient is: " + d);
-						ans.setVisible(true);
-						ans2.setVisible(true);
-						ans3.setVisible(true);
-						ans4.setVisible(true);
-						answer.setVisible(true);
-						answer2.setVisible(true);
-						answer3.setVisible(true);
-						answer4.setVisible(true);
-					}
-					else{
-						answer.setText("Invalid input");
+					else if ((add.getState()==false) && (sub.getState()==false) && (multi.getState()==false) && (div.getState()==false)){
+						answer.setText("Please select an Operation");
 						ans.setVisible(false);
 						ans2.setVisible(false);
 						ans3.setVisible(false);
@@ -223,14 +177,26 @@ public class Project extends JFrame {
 						answer2.setVisible(false);
 						answer3.setVisible(false);
 						answer4.setVisible(false);
-						cal.setBounds(130,100,90,25);
+						cal.setVisible(false);
+						res.setVisible(true);
+						res.setBounds(130,100,90,25);
 					}
 				}});	
 				
-				
+			
+			
+			
+			
+			
+			
+		
+					
 			}
 // creates the menubar and the file menu containing the operations
 	
+
+				
+				
 	public void createMenuBar() {
 
 //menu bar and items
@@ -264,6 +230,9 @@ public class Project extends JFrame {
 
 		setJMenuBar(menubar);
 	}
+	
+	
+
 
 //main 
 	public static void main(String[] args) {
@@ -282,3 +251,6 @@ public class Project extends JFrame {
 
 
 }
+
+
+
